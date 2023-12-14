@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- This code is courtesy of PastLivesDev on Github, and is on the MIT license, I created it to help out the education system, enjoy:D -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comprehensive Anti-Cheat Framework</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Comprehensive Anti-Cheat Framework</h1>
+    <div>
+        <p>This framework incorporates various features to prevent cheating in school assessments and online schooling systems.</p>
+    </div>
+
+    <!-- 1. Disable Copy-Pasting, super useful for creating essays and stuff when you dont want chatGPT writing it. -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            document.addEventListener('copy', function (e) {
+                e.preventDefault();
+                alert('Copying content is not allowed.');
+            });
+
+            document.addEventListener('cut', function (e) {
+                e.preventDefault();
+                alert('Cutting content is not allowed.');
+            });
+
+            document.addEventListener('paste', function (e) {
+                e.preventDefault();
+                alert('Pasting content is not allowed.');
+            });
+        });
+    </script>
+
+    <!-- 2. Disables dev tools, which is sad, but necessary most times, it stops the script kitys:3 -->
+    <script>
+        document.addEventListener('contextmenu', function (e) {
+            e.preventDefault();
+            alert('Right-click context menu is disabled.');
+        });
+
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'F12' || (e.key === 'U' && e.ctrlKey && e.shiftKey)) {
+                e.preventDefault();
+                alert('Developer tools are disabled.');
+            }
+        });
+    </script>
+
+    <!-- 3. Monitor Typing Speed because although you may be the flash, ymost people can type at 6000 WPM -->
+    <script>
+        var startTime;
+        var keyCount = 0;
+
+        document.addEventListener('keydown', function (e) {
+            if (!startTime) {
+                startTime = new Date().getTime();
+            }
+            keyCount++;
+        });
+
+        document.addEventListener('blur', function () {
+            var endTime = new Date().getTime();
+            var elapsedTime = (endTime - startTime) / 1000;
+
+            var typingSpeed = keyCount / elapsedTime;
+
+            var impossiblyFastThreshold = 50;
+
+            if (typingSpeed > impossiblyFastThreshold) {
+                alert('Your typing speed is unusually fast. Redirecting...');
+                window.location.href = 'https://example.com';
+            }
+        });
+    </script>
+    
+      <!-- So this little guy can be used to check for exstentions that are known to be used for cheating-->
+    
+    
+    <script>
+    var knownCheatingPlugins = ['cheatPlugin1', 'cheatPlugin2', 'cheatPlugin3']; // Add known cheating plugins
+
+    for (var i = 0; i < knownCheatingPlugins.length; i++) {
+        if (navigator.plugins[knownCheatingPlugins[i]]) {
+            alert('Known cheating plugin ' + knownCheatingPlugins[i] + ' detected. Redirecting...');
+            window.location.href = 'https://example.com';
+        }
+    }
+    </script>
+
+    
+  <!-- This can be used to lock the scroll speed, so users can tust scroll through at 90000 miles per hour and achive the speed of light-->
+
+    
+    <script>
+    var scrollSpeedLimit = 500; // Adjust the scroll speed limit as needed
+    var lastScrollTime = new Date().getTime();
+
+    window.addEventListener('wheel', function (event) {
+        var currentTime = new Date().getTime();
+        var timeDifference = currentTime - lastScrollTime;
+
+        if (timeDifference < scrollSpeedLimit) {
+            alert('Scrolling too quickly detected. Redirecting...');
+            window.location.href = 'https://example.com';
+        }
+
+        lastScrollTime = currentTime;
+    });
+    </script>
+
+    
+        <!-- Can be used to check if they are running a VM, aka a virtuial machine where no battery data is available, but use with caution mate-->
+
+    
+    <script>
+    navigator.getBattery().then(function (battery) {
+        if (battery.charging) {
+            alert('Device is charging. Cheating detected. Redirecting...');
+            window.location.href = 'https://example.com';
+        }
+    });
+  </script>
+
+        
+    <!-- Device orientation check which can help to find VM's or non-standard devices if you want to setup server stuff :3-->
+
+    <script>
+    window.addEventListener('orientationchange', function () {
+        alert('Device orientation change detected. Redirecting...');
+        window.location.href = 'https://example.com';
+    });
+    </script>
+
+
+    <!-- 4. Detect Window Resize, super useful to see if they are switching tabs or opening up sketchy tools or hacks that run in the same window. -->
+    <script>
+        document.addEventListener('resize', function () {
+            alert('Window resize detected. Redirecting...');
+            window.location.href = 'https://example.com';
+        });
+    </script>
+
+    <!-- 5. Detect Cursor Outside Page which is again used to find splitscreeners out -->
+    <script>
+        var isCursorInside = true;
+
+        document.addEventListener('mouseleave', function () {
+            isCursorInside = false;
+
+            setTimeout(function () {
+                if (!isCursorInside) {
+                    alert('Cursor is not touching the page. Redirecting...');
+                    window.location.href = 'https://example.com';
+                }
+            }, 2000);
+        });
+
+        document.addEventListener('mouseenter', function () {
+            isCursorInside = true;
+        });
+    </script>
+
+    <!-- 6. Disable Print scrn, because why would you want your test answers on the internet? -->
+    <script>
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'PrintScreen') {
+                e.preventDefault();
+                alert('Screenshots are disabled.');
+            }
+        });
+    </script>
+
+    <!-- 7. Disable Right-Click on Images because of the above reason -->
+    <script>
+        document.addEventListener('contextmenu', function (e) {
+            if (e.target.tagName === 'IMG') {
+                e.preventDefault();
+                alert('Right-click on images is disabled.');
+            }
+        });
+    </script>
+
+    <!-- 8. Disable Inspect Element on Images but you should just disable it in general tbh. -->
+    <script>
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'F12' && e.target.tagName === 'IMG') {
+                e.preventDefault();
+                alert('Inspect Element on images is disabled.');
+            }
+        });
+    </script>
+
+    <!-- 9. Disable Audio Context which is kind pointless but can help. -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var AudioContext = window.AudioContext || window.webkitAudioContext;
+            if (AudioContext) {
+                var audioContext = new AudioContext();
+                audioContext.close();
+                alert('Audio context is disabled.');
+            }
+        });
+    </script>
+
+    <!-- 10. Randomize Question Order -->
+    <script>
+        function randomizeQuestionOrder() {
+            var questionsContainer = document.getElementById('questions-container');
+            var questions = Array.from(questionsContainer.children);
+
+            questions.sort(function () {
+                return 0.5 - Math.random();
+            });
+
+            questions.forEach(function (question) {
+                questionsContainer.appendChild(question);
+            });
+        }
+    </script>
+
+    <!-- 11. Time-Based Analysis so no going AFK -->
+    <script>
+        var startTime = new Date().getTime();
+
+        function analyzeTimeTaken() {
+            var endTime = new Date().getTime();
+            var elapsedTime = (endTime - startTime) / 1000;
+
+            if (elapsedTime < 60 || elapsedTime > 600) { // 1-10 minutes allowed
+                alert('Time taken is not within the expected range. Redirecting...');
+                window.location.href = 'https://example.com';
+            }
+        }
+    </script>
+
+    <!-- 12. Remote Proctoring, kinda orwellian but whatever floats your ministry of peace big brother.-->
+    <script>
+        function startRemoteProctoring() {
+            var webcam = document.createElement('video');
+            navigator.mediaDevices.getUserMedia({ video: true })
+                .then(function (stream) {
+                    webcam.srcObject = stream;
+                    webcam.play();
+                    alert('Remote proctoring started.');
+                })
+                .catch(function (error) {
+                    alert('Error accessing webcam: ' + error.message);
+                });
+        }
+    </script>
+
+    <!-- 13. User Agent Check so you dont get bots -->
+    <script>
+        var userAgent = navigator.userAgent.toLowerCase();
+
+        if (userAgent.includes('bot') || userAgent.includes('crawler') || userAgent.includes('spider')) {
+            alert('Bots are not allowed. Redirecting...');
+            window.location.href = 'https://example.com';
+        }
+    </script>
+
+    <!-- 14. Disable Drag and Drop -->
+    <script>
+        document.addEventListener('dragstart', function (e) {
+            e.preventDefault();
+            alert('Drag and drop is disabled.');
+        });
+    </script>
+
+    <!-- 15. Disable Right-Click on Page -->
+    <script>
+        document.addEventListener('contextmenu', function (e) {
+            e.preventDefault();
+            alert('Right-click on the page is disabled.');
+        });
+    </script>
+
+    <!-- 16. Disable Back Button, its just a bad thing to have -->
+    <script>
+        window.addEventListener('popstate', function () {
+            alert('Back button is disabled.');
+            history.pushState(null, null, window.location.href);
+        });
+    </script>
+
+    <!-- 17. Disable Form Autofill -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var form = document.getElementById('assessment-form');
+
+            form.addEventListener('focus', function (e) {
+                if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') {
+                    e.target.setAttribute('autocomplete', 'off');
+                }
+            }, true);
+        });
+    </script>
+
+    <!-- 18. Disable JavaScript Console For obvious reasons -->
+    <script>
+        if (typeof console !== 'undefined') {
+            console.log = function () {
+                alert('Console log is disabled.');
+            };
+
+            console.warn = function () {
+                alert('Console warn is disabled.');
+            };
+
+            console.error = function () {
+                alert('Console error is disabled.');
+            };
+        }
+    </script>
+
+    <!-- 19. Disable Right-Click Dragging -->
+    <script>
+        document.addEventListener('mousedown', function (e) {
+            if (e.button === 2) {
+                e.preventDefault();
+                alert('Right-click dragging is disabled.');
+            }
+        });
+    </script>
+
+    <!-- 20. Disable Text Selection -->
+    <script>
+        document.addEventListener('selectstart', function (e) {
+            e.preventDefault();
+            alert('Text selection is disabled.');
+        });
+    </script>
+
+    <!-- 21. Disable Touch Events -->
+    <script>
+        document.addEventListener('touchstart', function (e) {
+            e.preventDefault();
+            alert('Touch events are disabled.');
+        });
+    </script>
+
+    <!-- 22. Disable WebGL -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var canvas = document.createElement('canvas');
+            var gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+            if (gl) {
+                alert('WebGL is disabled.');
+            }
+        });
+    </script>
+
+    <!-- 23. Fullscreen Protection -->
+    <script>
+        document.addEventListener('fullscreenchange', function () {
+            if (document.fullscreenElement) {
+                alert('Fullscreen mode is not allowed.');
+                document.exitFullscreen();
+            }
+        });
+    </script>
+
+    <!-- 24. Disable Print -->
+    <script>
+        window.addEventListener('beforeprint', function () {
+            alert('Printing is not allowed.');
+            window.print = function () { };
+        });
+    </script>
+
+    <!-- 25. Disable Browser Extensions -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            if (typeof chrome !== 'undefined' || typeof safari !== 'undefined' || typeof opera !== 'undefined') {
+                alert('Browser extensions are not allowed.');
+            }
+        });
+    </script>
+
+    <!-- 26. Prohibit Multiple Tabs -->
+    <script>
+        if (window.history.length > 1) {
+            alert('Multiple tabs are not allowed. Redirecting...');
+            window.location.href = 'https://example.com';
+        }
+    </script>
+
+    <!-- 27. Disable Autoplay -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var video = document.getElementById('assessment-video');
+            video.autoplay = false;
+        });
+    </script>
+
+    <!-- 28. Disable Right-Click Dragging on Images -->
+    <script>
+        document.addEventListener('mousedown', function (e) {
+            if (e.target.tagName === 'IMG' && e.button === 2) {
+                e.preventDefault();
+                alert('Right-click dragging on images is disabled.');
+            }
+        });
+    </script>
+
+    <!-- 29. Disable Animated GIFs -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var gifs = document.querySelectorAll('img[src$=".gif"]');
+            gifs.forEach(function (gif) {
+                gif.setAttribute('src', 'blank.gif');
+            });
+        });
+    </script>
+
+    <!-- 30. Randomization of Answer Choices -->
+    <script>
+        function randomizeAnswerChoices() {
+            var questionContainers = document.querySelectorAll('.question-container');
+            questionContainers.forEach(function (questionContainer) {
+                var answerChoices = Array.from(questionContainer.querySelectorAll('.answer-choice'));
+                answerChoices.sort(function () {
+                    return 0.5 - Math.random();
+                });
+                answerChoices.forEach(function (choice) {
+                    questionContainer.appendChild(choice);
+                });
+            });
+        }
+    </script>
+
+    <!-- 31. Disable Speech Synthesis -->
+    <script>
+        if ('speechSynthesis' in window) {
+            window.speechSynthesis.cancel();
+            alert('Speech synthesis is disabled.');
+        }
+    </script>
+
+    <!-- 32. Prevent Highlighting of Text -->
+        <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            document.addEventListener('selectstart', function (e) {
+                e.preventDefault();
+                alert('Text highlighting is disabled.');
+            });
+        });
+    </script>
+
+    <!-- 33. Disable WebRTC -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var pc = new RTCPeerConnection();
+            pc.createDataChannel('');
+            pc.createOffer().then(pc.setLocalDescription.bind(pc));
+            alert('WebRTC is disabled.');
+        });
+    </script>
+
+    <!-- 34. Prevent Text Copy in CSS -->
+    <style>
+        body {
+            user-select: none;
+        }
+    </style>
+
+    <!-- 35. Disable Backspace Navigation -->
+    <script>
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Backspace') {
+                e.preventDefault();
+                alert('Backspace navigation is disabled.');
+            }
+        });
+    </script>
+
+    <!-- 36. Detect Browser Console Open -->
+    <script>
+        var consoleCheckTimer = setInterval(function () {
+            if (typeof console.clear !== 'undefined' || typeof console._commandLineAPI !== 'undefined') {
+                alert('Browser console is open. Redirecting...');
+                window.location.href = 'https://example.com';
+                clearInterval(consoleCheckTimer);
+            }
+        }, 1000);
+    </script>
+
+    <!-- 37. Disable Ctrl + A, Ctrl + C, Ctrl + X -->
+    <script>
+        document.addEventListener('keydown', function (e) {
+            if (e.ctrlKey && (e.key === 'a' || e.key === 'c' || e.key === 'x')) {
+                e.preventDefault();
+                alert('Ctrl + A, Ctrl + C, Ctrl + X are disabled.');
+            }
+        });
+    </script>
+
+    <!-- 38. Prevent Scrolling -->
+    <script>
+        window.addEventListener('scroll', function () {
+            window.scrollTo(0, 0);
+        });
+    </script>
+
+    <!-- 39. Disable Browser Navigation -->
+    <script>
+        history.pushState(null, null, document.URL);
+        window.addEventListener('popstate', function () {
+            history.pushState(null, null, document.URL);
+        });
+    </script>
+
+    <!-- 40. Disable WebGL Rendering -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var canvas = document.createElement('canvas');
+            var gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+            if (gl) {
+                gl.getParameter(gl.VERSION);
+                gl.getShaderPrecisionFormat(gl.FRAGMENT_SHADER, gl.HIGH_FLOAT);
+                gl.createBuffer().width;
+                alert('WebGL rendering is disabled.');
+            }
+        });
+    </script>
+
+    <!-- 41. Disable URL Bar Changes -->
+    <script>
+        window.addEventListener('hashchange', function () {
+            window.location.hash = 'nochange';
+        });
+    </script>
+
+    <!-- 42. Disable Document Context Menu -->
+    <script>
+        document.addEventListener('contextmenu', function (e) {
+            e.preventDefault();
+            alert('Document context menu is disabled.');
+        });
+    </script>
+
+    <!-- 43. Disable Mouse Right-Click -->
+    <script>
+        document.addEventListener('mousedown', function (e) {
+            if (e.button === 2) {
+                e.preventDefault();
+                alert('Mouse right-click is disabled.');
+            }
+        });
+    </script>
+
+    <!-- 44. Disable Audio Output -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var audio = new Audio();
+            audio.volume = 0;
+            audio.play();
+            alert('Audio output is disabled.');
+        });
+    </script>
+    
+    <!-- 51. Behavior Analysis -->
+    <script>
+      document.addEventListener('keydown', function (e) {
+        // Collect data for behavior analysis (replace this with your implementation)
+        var eventData = {
+          key: e.key,
+          timestamp: new Date().getTime(),
+          // ... other relevant data
+        };
+    
+        // Send data to your machine learning model for analysis
+        // Replace 'analyzeBehavior' with your actual API endpoint or function
+        fetch('https://your-api-endpoint/analyzeBehavior', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(eventData),
+        })
+        .then(response => response.json())
+        .then(result => {
+          if (result.isCheating) {
+            alert('Behavior analysis detected potential cheating.');
+            // Take appropriate action, e.g., redirect or log the incident
+          }
+        })
+        .catch(error => console.error('Error during behavior analysis:', error));
+      });
+    </script>
+
+
+    <!-- 45. Disable Video Output -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var video = document.createElement('video');
+            video.src = 'nonexistent.mp4';
+            video.play();
+            alert('Video output is disabled.');
+        });
+    </script>
+    
+    <!-- 54. IP Geolocation using ipinfo.io -->
+    <script>
+      // Function to fetch and display IP geolocation information
+      function fetchAndDisplayIPGeolocation() {
+        // Make a request to ipinfo.io for geolocation information
+        fetch('https://ipinfo.io/json')
+          .then(response => response.json())
+          .then(data => {
+            // Extract relevant information (you can customize this based on your needs)
+            var ipAddress = data.ip || 'N/A';
+            var city = data.city || 'N/A';
+            var region = data.region || 'N/A';
+            var country = data.country || 'N/A';
+            var location = `${city}, ${region}, ${country}`;
+    
+            // Display the geolocation information (you can customize how this is displayed)
+            alert(`IP Address: ${ipAddress}\nLocation: ${location}`);
+          })
+          .catch(error => console.error('Error fetching IP geolocation:', error));
+      }
+    
+      // Call the function on document load
+      document.addEventListener('DOMContentLoaded', fetchAndDisplayIPGeolocation);
+    </script>
+
+
+    <!-- 46. Disable HTML5 Canvas -->
+    <script>
+        var img = new Image();
+        img.src = 'canvas_test.jpg';
+        img.onload = function () {
+            var canvas = document.createElement('canvas');
+            var ctx = canvas.getContext('2d');
+            ctx.drawImage(img, 0, 0);
+            var data = canvas.toDataURL();
+            if (data.indexOf('data:image/jpeg') !== 0 || data.indexOf('data:image/webp') !== -1) {
+                alert('HTML5 Canvas is disabled.');
+            }
+        };
+    </script>
+
+    <!-- 47. Disable Network Requests -->
+    <script>
+        window.addEventListener('beforeunload', function (e) {
+            e.returnValue = '';
+        });
+
+        window.addEventListener('unload', function () {
+            alert('Network requests are disabled.');
+        });
+    </script>
+
+    <!-- 48. Disable CSS Transitions -->
+    <style>
+        * {
+            transition: none !important;
+            animation: none !important;
+        }
+    </style>
+
+    <!-- 49. Disable Timed Alerts -->
+    <script>
+        setTimeout(function () {
+            alert('Timed alerts are disabled.');
+        }, 1000);
+    </script>
+
+    <!-- 50. Disable Hash Changes -->
+    <script>
+        window.addEventListener('hashchange', function () {
+            window.location.hash = 'nochange';
+        });
+
+	<!-- 1. Browser Fingerprinting -->
+  <script>
+    function generateBrowserFingerprint() {
+        var fingerprint = new Fingerprint().get();
+        alert('Your browser fingerprint: ' + fingerprint);
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+        generateBrowserFingerprint();
+    });
+</script>
+
+<!-- Include Fingerprint.js library -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fingerprintjs2/2.1.0/fingerprint2.min.js"></script>
+
+    </script>
+</body>
+</html>
